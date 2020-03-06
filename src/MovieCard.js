@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
-import { connect } from 'react-redux'
-import { deleteMovie } from './actions/listsActions'
+import { connect } from 'react-redux';
+import { deleteMovie } from './actions/listsActions';
 import AddModal from './AddModal';
+import { Link } from 'react-router-dom';
 
 const MovieCard =props=> {
        return (              
@@ -16,7 +17,9 @@ const MovieCard =props=> {
             <div className="mov">
         <h3>{props.movie.title}</h3> 
         <h3>{props.movie.year}</h3>
+        <Link to={`/${props.movie.id}`}>
         <button className="yyy">Movie Description</button>
+        </Link>
         <div className="xxx">       
         <button className="myButton" onClick={() => props.delete(props.movie.id)}>Remove</button>
         <br/>
